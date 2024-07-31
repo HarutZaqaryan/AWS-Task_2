@@ -36,9 +36,7 @@
           "lambda_name": "hello_world",
           "api_key_required": false,
           "method_request_parameters": {},
-          "integration_request_body_template": {
-            "application/json": "{\"httpMethod\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\"}"
-          },
+          "integration_request_body_template": {},
           "responses": [
             {
               "statusCode": "200",
@@ -47,6 +45,7 @@
               }
             }
           ],
+          "integration_responses": [],
           "default_error_pattern": true
         }
       }
