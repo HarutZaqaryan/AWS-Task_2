@@ -47,14 +47,7 @@
               }
             }
           ],
-          "integration_responses": [
-            {
-              "statusCode": "200",
-              "responseTemplates": {
-                "application/json": ""
-              }
-            }
-          ],
+          "integration_responses": [],
           "default_error_pattern": true
         }
       }
