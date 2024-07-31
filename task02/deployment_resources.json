@@ -33,13 +33,29 @@
         "enable_cors": true,
         "GET": {
           "authorization_type": "NONE",
-          "integration_type": "lambda",
+          "integration_type": "lambda_proxy",
           "lambda_name": "hello_world",
           "api_key_required": false,
           "method_request_parameters": {},
-          "integration_request_body_template": {},
-          "responses": [],
-          "integration_responses": [],
+          "integration_request_body_template": {
+            "application/json": "{\"httpMethod\": \"$context.httpMethod\", \"resourcePath\": \"$context.resourcePath\", \"queryStringParameters\": $input.params().querystring, \"pathParameters\": {#foreach($param in $input.params().path)#if($foreach.index > 0),#end\"$param\":\"$util.escapeJavaScript($input.params().path.get($param)).replaceAll(\"\\\\'\", \"'\")\"#end}, \"body\": $input.body}"
+          },
+          "responses": [
+            {
+              "statusCode": "200",
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          ],
+          "integration_responses": [
+            {
+              "statusCode": "200",
+              "responseTemplates": {
+                "application/json": ""
+              }
+            }
+          ],
           "default_error_pattern": true
         }
       }
