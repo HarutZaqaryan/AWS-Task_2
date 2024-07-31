@@ -37,7 +37,7 @@
           "api_key_required": false,
           "method_request_parameters": {},
           "integration_request_body_template": {
-            "application/json": "{\"httpMethod\": \"$context.httpMethod\", \"resourcePath\": \"$context.resourcePath\", \"queryStringParameters\": $input.params().querystring, \"pathParameters\": {#foreach($param in $input.params().path)#if($foreach.index > 0),#end\"$param\":\"$util.escapeJavaScript($input.params().path.get($param)).replaceAll(\"\\\\'\", \"'\")\"#end}, \"body\": $input.body}"
+            "application/json": "{\"httpMethod\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\"}"
           },
           "responses": [
             {
